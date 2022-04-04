@@ -1,0 +1,73 @@
+{
+  "root": "apps/happynrwl",
+  "sourceRoot": "apps/happynrwl/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/happynrwl",
+        "index": "apps/happynrwl/src/index.html",
+        "baseHref": "/",
+        "main": "apps/happynrwl/src/main.tsx",
+        "polyfills": "apps/happynrwl/src/polyfills.ts",
+        "tsConfig": "apps/happynrwl/tsconfig.app.json",
+        "assets": [
+          "apps/happynrwl/src/favicon.ico",
+          "apps/happynrwl/src/assets"
+        ],
+        "styles": ["apps/happynrwl/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/happynrwl/src/environments/environment.ts",
+              "with": "apps/happynrwl/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "happynrwl:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "happynrwl:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/happynrwl/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/happynrwl"],
+      "options": {
+        "jestConfig": "apps/happynrwl/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/happynrwl-e2e",
+  "sourceRoot": "apps/happynrwl-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/happynrwl-e2e/cypress.json",
+        "devServerTarget": "happynrwl:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "happynrwl:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/happynrwl-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["happynrwl"]
+}

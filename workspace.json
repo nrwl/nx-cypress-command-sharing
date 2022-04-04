@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "happynrwl": "apps/happynrwl",
+    "happynrwl-e2e": "apps/happynrwl-e2e"
+  }
+}
