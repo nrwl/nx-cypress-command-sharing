@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nxlovescypress/shared/cypress-commands": [
+        "libs/shared/cypress-commands/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

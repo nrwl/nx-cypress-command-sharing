@@ -1,0 +1,32 @@
+{
+  "root": "libs/shared/cypress-commands",
+  "sourceRoot": "libs/shared/cypress-commands/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/cypress-commands",
+        "main": "libs/shared/cypress-commands/src/index.ts",
+        "tsConfig": "libs/shared/cypress-commands/tsconfig.lib.json",
+        "assets": ["libs/shared/cypress-commands/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared/cypress-commands/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/cypress-commands"],
+      "options": {
+        "jestConfig": "libs/shared/cypress-commands/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
